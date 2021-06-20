@@ -56,3 +56,20 @@ form {
   background: white;
 }
 
+input, textarea {
+  border: 0; 
+  border-bottom: 1px solid var(--secondary);
+  padding: 0.8rem;
+  outline: none;
+  display: block;
+  width: 100%;
+  box-sizing: border-box; 
+  margin: 20px auto;
+}
+
+/* Error text */
+.error {
+  color: var(--warning); 
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
