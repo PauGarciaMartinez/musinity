@@ -1,5 +1,9 @@
 <template>
-  <p>Login</p>
+  <form>
+    <input type="email" placeholder="Email" v-model="email">
+    <input type="password" placeholder="Password" v-model="password">
+    <button>Log In</button>
+  </form>
 </template>
 
 <script>
