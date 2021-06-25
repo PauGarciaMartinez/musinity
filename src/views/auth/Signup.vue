@@ -24,7 +24,7 @@ export default {
     const password = ref('')
     const displayName = ref('')
 
-    handleSubmit = async () => {
+    const handleSubmit = async () => {
       const res = await signUp(email.value, password.value, displayName.value)
       if (!error.value) {
         console.log('User signed up')

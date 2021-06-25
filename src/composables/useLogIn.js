@@ -1,4 +1,3 @@
-import { is } from "core-js/fn/object"
 import { ref } from "vue"
 import { projectAuth } from "../firebase/config"
 
