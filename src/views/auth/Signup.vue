@@ -14,9 +14,12 @@
 
 <script>
 import { ref } from '@vue/reactivity'
+import useSignUp from '@/composables/useSignUp'
 
 export default {
   setup() {
+    const { error, signUp, isPending } = useSignUp()
+
     const email = ref('')
     const password = ref('')
     const displayName = ref('')
