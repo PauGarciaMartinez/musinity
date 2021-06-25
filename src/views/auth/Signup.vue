@@ -24,7 +24,14 @@ export default {
     const password = ref('')
     const displayName = ref('')
 
-    return { email, password, displayName }
+    handleSubmit = async () => {
+      const res = await signUp(email.value, password.value, displayName.value)
+      if (!error.value) {
+        console.log('User signed up')
+      }
+    }
+
+    return { email, password, displayName, error, handleSubmit, isPending }
   }
 }
 </script>
