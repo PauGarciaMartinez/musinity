@@ -13,8 +13,14 @@
 </template>
 
 <script>
-export default {
+import useLogOut from '@/composables/useLogOut'
 
+export default {
+  setup() {
+    const { error, logOut, isPending } = useLogOut()
+
+    return { error, logOut, isPending }
+  }
 }
 </script>
 
