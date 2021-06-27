@@ -4,7 +4,7 @@
       <img src="@/assets/logo.png" alt="Logo">
       <h1><router-link :to="{ name: 'Home' }">Musinity</router-link></h1>
       <div class="links">
-        <button>Log Out</button>
+        <button @click="handleClick">Log Out</button>
         <router-link class="btn" :to="{ name: 'Signup' }">Sign Up</router-link>
         <router-link class="btn" :to="{ name: 'Login' }">Log In</router-link>
       </div>
@@ -19,7 +19,11 @@ export default {
   setup() {
     const { error, logOut, isPending } = useLogOut()
 
-    return { error, logOut, isPending }
+    const handleClick = () => {
+
+    }
+
+    return { error, logOut, isPending, handleClick }
   }
 }
 </script>
