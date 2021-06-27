@@ -14,13 +14,15 @@
 
 <script>
 import useLogOut from '@/composables/useLogOut'
+import { useRouter } from 'vue-router'
 
 export default {
   setup() {
     const { error, logOut, isPending } = useLogOut()
+    const router = useRouter()
 
     const handleClick = () => {
-
+      router.push({ name: 'Home' })
     }
 
     return { error, logOut, isPending, handleClick }
