@@ -25,7 +25,9 @@ export default {
     const types = ['image/png', 'image/jpeg']
 
     const handleSubmit = () => {
-      console.log(title.value, description.value)
+      if (file.value) {
+        console.log(title.value, description.value, file.value)
+      }
     }
 
     const handleChange = (e) => {
