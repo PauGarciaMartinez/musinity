@@ -1,5 +1,7 @@
 <template>
   
+  <p>Create playlist</p>
+  
 </template>
 
 <script>
