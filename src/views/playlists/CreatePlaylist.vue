@@ -5,7 +5,7 @@
     <input type="text" placeholder="Playlist title" v-model="title" required>
     <textarea placeholder="Playlist description..." v-model="description" required></textarea>
     <label>Upload playlist cover image</label>
-    <input type="file">
+    <input type="file" @change="handleChange">
 
     <div class="error" v-if="error">{{ error.value }}</div>
     <button>Create</button>
@@ -24,7 +24,12 @@ export default {
       console.log(title.value, description.value)
     }
 
-    return { title, description, handleSubmit }
+    const handleChange = (e) => {
+      const selected = e.target.files[0]
+      console.log(selected)
+    }
+
+    return { title, description, handleSubmit, handleChange }
   }
 }
 </script>
