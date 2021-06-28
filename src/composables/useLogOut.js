@@ -10,12 +10,12 @@ const logOut = async () => {
 
   try {
     await projectAuth.signOut()
-    isPending = false
+    isPending.value = false
     
   } catch(err) {
     console.log(err.message)
     error.value = err.message
-    isPending = false
+    isPending.value = false
   }
 }
 

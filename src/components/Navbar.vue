@@ -4,21 +4,23 @@
       <img src="@/assets/logo.png" alt="Logo">
       <h1><router-link :to="{ name: 'Home' }">Musinity</router-link></h1>
       <div class="links">
-        <button @click="handleClick">Log Out</button>
-        <router-link class="btn" :to="{ name: 'Signup' }">Sign Up</router-link>
-        <router-link class="btn" :to="{ name: 'Login' }">Log In</router-link>
+        <button @click="handleClick" v-if="user">Log Out</button>
+        <router-link v-if="!user" class="btn" :to="{ name: 'Signup' }">Sign Up</router-link>
+        <router-link v-if="!user" class="btn" :to="{ name: 'Login' }">Log In</router-link>
       </div>
     </nav>
   </div>
 </template>
 
 <script>
+import getUser from '@/composables/getUser'
 import useLogOut from '@/composables/useLogOut'
 import { useRouter } from 'vue-router'
 
 export default {
   setup() {
     const { error, logOut } = useLogOut()
+    const { user } = getUser() 
     const router = useRouter()
 
     const handleClick = async () => {
@@ -29,7 +31,7 @@ export default {
       router.push({ name: 'Login' })
     }
 
-    return { error, logOut, handleClick }
+    return { error, logOut, handleClick, user }
   }
 }
 </script>
