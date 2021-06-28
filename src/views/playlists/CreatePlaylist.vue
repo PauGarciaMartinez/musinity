@@ -29,6 +29,17 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+input[type="file"] {
+  border: 0;
+  padding: 0;
+}
+label {
+  font-size: 12px;
+  display: block;
+  margin-top: 30px;
+}
+button {
+  margin-top: 20px;
+}
 </style>
