@@ -1,19 +1,31 @@
 <template>
   
-  <form>
+  <form @submit.prevent="handleSubmit">
     <h4>Create New Playlist</h4>
     <input type="text" placeholder="Playlist title" v-model="title" required>
     <textarea placeholder="Playlist description..." v-model="description" required></textarea>
     <label>Upload playlist cover image</label>
     <input type="file">
+
+    <div class="error" v-if="error">{{ error.value }}</div>
     <button>Create</button>
   </form>
 
 </template>
 
 <script>
+import { ref } from '@vue/reactivity'
 export default {
+  setup() {
+    const title = ref('')
+    const description = ref('')
 
+    const handleSubmit = () => {
+      console.log(title.value, description.value)
+    }
+
+    return { title, description, handleSubmit }
+  }
 }
 </script>
 
