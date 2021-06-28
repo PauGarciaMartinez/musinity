@@ -18,14 +18,18 @@ import { useRouter } from 'vue-router'
 
 export default {
   setup() {
-    const { error, logOut, isPending } = useLogOut()
+    const { error, logOut } = useLogOut()
     const router = useRouter()
 
-    const handleClick = () => {
+    const handleClick = async () => {
+      await logOut()
+      if (!error.value) {
+        console.log('User logged out')
+      }
       router.push({ name: 'Login' })
     }
 
-    return { error, logOut, isPending, handleClick }
+    return { error, logOut, handleClick }
   }
 }
 </script>
