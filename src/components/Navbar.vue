@@ -22,7 +22,7 @@ export default {
     const router = useRouter()
 
     const handleClick = () => {
-      router.push({ name: 'Home' })
+      router.push({ name: 'Login' })
     }
 
     return { error, logOut, isPending, handleClick }
