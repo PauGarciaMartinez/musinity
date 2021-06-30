@@ -16,7 +16,7 @@
 
 <script>
 import { ref } from '@vue/reactivity'
-import { useStorage } from '@/composables/useStorage'
+import useStorage from '@/composables/useStorage'
 
 export default {
   setup() {
