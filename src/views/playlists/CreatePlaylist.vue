@@ -16,6 +16,8 @@
 
 <script>
 import { ref } from '@vue/reactivity'
+import { useStorage } from '@/composables/useStorage'
+
 export default {
   setup() {
     const title = ref('')
@@ -23,6 +25,8 @@ export default {
     const file = ref(null)
     const fileError = ref(null)
     const types = ['image/png', 'image/jpeg']
+
+    const { error, uploadImage } = useStorage()
 
     const handleSubmit = () => {
       if (file.value) {
@@ -43,7 +47,7 @@ export default {
       }
     }
 
-    return { title, description, handleSubmit, handleChange, fileError }
+    return { title, description, handleSubmit, handleChange, fileError, error }
   }
 }
 </script>
