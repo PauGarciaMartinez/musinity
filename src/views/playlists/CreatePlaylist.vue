@@ -46,6 +46,9 @@ export default {
           songs: [],
           createdAt: timestamp()
         })
+        if (!error.value) {
+          console.log('Playlist added')
+        }
       }
     }
 
