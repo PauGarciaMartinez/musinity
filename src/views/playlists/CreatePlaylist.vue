@@ -9,7 +9,8 @@
     <div class="error">{{ fileError }}</div>
 
     <div class="error" v-if="error">{{ error.value }}</div>
-    <button>Create</button>
+    <button v-if="!isPending">Create</button>
+    <button v-else disabled>Saving</button>
   </form>
 
 </template>
@@ -32,9 +33,11 @@ export default {
     const file = ref(null)
     const fileError = ref(null)
     const types = ['image/png', 'image/jpeg']
+    const isPending = ref(false)
 
     const handleSubmit = async () => {
       if (file.value) {
+        isPending.value = true
         await uploadImage(file.value)
         await addDoc({
           title: title.value,
@@ -46,6 +49,7 @@ export default {
           songs: [],
           createdAt: timestamp()
         })
+        isPending.value = false
         if (!error.value) {
           console.log('Playlist added')
         }
@@ -65,7 +69,7 @@ export default {
       }
     }
 
-    return { title, description, handleSubmit, handleChange, fileError, error }
+    return { title, description, handleSubmit, handleChange, fileError, error, isPending }
   }
 }
 </script>
