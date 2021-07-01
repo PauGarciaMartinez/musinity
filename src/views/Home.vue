@@ -5,10 +5,12 @@
 </template>
 
 <script>
+import getCollection from '@/composables/getCollection'
 
 export default {
   name: 'Home',
-  components: {
+  setup() {
+    const { documents, error } = getCollection('playlists')
   }
 }
 </script>
