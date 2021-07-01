@@ -23,7 +23,7 @@ import { timestamp } from '@/firebase/config'
 
 export default {
   setup() {
-    const { filePath, url, error, uploadImage } = useStorage()
+    const { filePath, url, uploadImage } = useStorage()
     const { error, addDoc } = useCollection('playlists')
     const { user } = getUser()
 
