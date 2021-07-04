@@ -4,9 +4,7 @@
     <p>Homepage</p>
     <div v-if="error">Could not fetch the data</div>
     <div v-if="documents">
-      <div v-for="doc in documents" :key="doc.id">
-        <ListView :playlists="documents" />
-      </div>
+      <ListView :playlists="documents" />
     </div>
     
   </div>
