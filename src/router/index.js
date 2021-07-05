@@ -39,7 +39,7 @@ const routes = [
     beforeEnter: requireAuth
   },
   {
-    path: 'playlists/:id',
+    path: '/playlists/:id',
     name: 'PlaylistDetails',
     component: PlaylistDetails,
     beforeEnter: requireAuth,
