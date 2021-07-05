@@ -4,9 +4,14 @@
       <img src="@/assets/logo.png" alt="Logo">
       <h1><router-link :to="{ name: 'Home' }">Musinity</router-link></h1>
       <div class="links">
-        <button @click="handleClick" v-if="user">Log Out</button>
-        <router-link v-if="!user" class="btn" :to="{ name: 'Signup' }">Sign Up</router-link>
-        <router-link v-if="!user" class="btn" :to="{ name: 'Login' }">Log In</router-link>
+        <div v-if="user">
+          <router-link :to="{ name: 'CreatePlaylist' }"></router-link>
+          <button @click="handleClick">Log Out</button>
+        </div>
+        <div v-else>
+          <router-link class="btn" :to="{ name: 'Signup' }">Sign Up</router-link>
+          <router-link class="btn" :to="{ name: 'Login' }">Log In</router-link>
+        </div>
       </div>
     </nav>
   </div>
