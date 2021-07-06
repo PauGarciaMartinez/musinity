@@ -2,10 +2,28 @@ import { ref } from 'vue'
 import { projectFirestore } from '@/firebase/config'
 
 const useDocument = (collection, id) => {
-  let error = ref(null)
-  let isPending = ref(null)
+  const error = ref(null)
+  const isPending = ref(null)
 
-  return { error, isPending }
+  let docRef = projectFirestore.collection(collection).doc(id)
+
+  const deleteDoc = async () => {
+    isPending.value = true
+    error.value = null
+    
+    try {
+      const res = await docRef.delete()
+      isPending.value = false
+      return res
+
+    } catch(err) {
+      console.log(err.message)
+      error.value = err.message
+      isPending.value = false
+    }
+  }
+
+  return { error, isPending, deleteDoc }
 }
 
 export default useDocument
