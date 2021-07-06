@@ -13,7 +13,7 @@
     </div>
 
     <div class="song-list">
-
+      <p>Song list goes here</p>
     </div>
 
   </div>
@@ -22,13 +22,15 @@
 
 <script>
 import getDocument from '@/composables/getDocument'
+import getUser from '@/composables/getUser'
 
 export default {
   props: ['id'],
   setup(props) {
     const { document: playlist, error } = getDocument('playlists', props.id)
+    const { user } = getUser()
 
-    return { playlist, error }
+    return { playlist, error, user }
   }
 }
 </script>
