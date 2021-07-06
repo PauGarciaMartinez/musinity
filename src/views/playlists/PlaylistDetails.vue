@@ -24,12 +24,14 @@
 <script>
 import getDocument from '@/composables/getDocument'
 import getUser from '@/composables/getUser'
+import useDocument from '@/composables/useDocument'
 import { computed } from '@vue/runtime-core'
 
 export default {
   props: ['id'],
   setup(props) {
     const { document: playlist, error } = getDocument('playlists', props.id)
+    const { deleteDoc } = useDocument('playlists', props.id)
     const { user } = getUser()
 
     const ownership = computed(() => {
