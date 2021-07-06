@@ -10,7 +10,7 @@
       <h2>{{ playlist.title }}</h2>
       <p class="username">Created by {{ playlist.userName }}</p>
       <p class="description">{{ playlist.description }}</p>
-      <button v-if="ownership" @click="handle">Delete Playlist</button>
+      <button v-if="ownership" @click="handleDelete">Delete Playlist</button>
     </div>
 
     <div class="song-list">
@@ -38,7 +38,11 @@ export default {
       return playlist.value && user.value && user.value.uid === playlist.value.userId
     })
 
-    return { playlist, error, ownership }
+    const handleDelete = async () => {
+      await deleteDoc()
+    }
+
+    return { playlist, error, ownership, handleDelete }
   }
 }
 </script>
