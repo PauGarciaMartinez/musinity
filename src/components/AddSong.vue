@@ -22,7 +22,11 @@ export default {
     const showForm = ref(false)
 
     const handleSubmit = async () => {
-
+      const newSong = {
+        title: title.value,
+        artist: artist.value,
+        id: Math.floor(Math.random() * 1000000000)
+      }
     }
 
     return { title, artist, showForm, handleSubmit }
