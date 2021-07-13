@@ -20,7 +20,7 @@
           <h3>{{ song.title }}</h3>
           <p>{{ song.artist }}</p>
         </div>
-        <button v-if="ownership">Delete</button>
+        <button v-if="ownership" @click="handleClick">Delete</button>
       </div>  
       <AddSong v-if="ownership" :playlist="playlist" />
     </div>
@@ -60,7 +60,11 @@ export default {
       router.push({ name: 'Home' })
     }
 
-    return { playlist, error, ownership, handleDelete }
+    const handleClick = async () => {
+
+    }
+
+    return { playlist, error, ownership, handleDelete, handleClick }
   }
 }
 </script>

@@ -1,12 +1,10 @@
 <template>
 
   <div class="home">
-    <p>Homepage</p>
     <div v-if="error">Could not fetch the data</div>
     <div v-if="documents">
       <ListView :playlists="documents" />
     </div>
-    
   </div>
 
 </template>
