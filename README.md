@@ -1,19 +1,7 @@
 # musinity
 
-## Project setup
-```
-npm install
-```
+## About the project
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+This project has been made with Vue 3 for the front-end and Firebase for the back-end. The application itself is a community where users can share their playlists. 
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+You can check it here: https://musinity-1e616.web.app/login
